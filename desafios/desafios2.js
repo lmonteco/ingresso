@@ -1,18 +1,4 @@
-let n1 = Number(prompt('Digite um valor:'));
-let operacao = prompt('Digite o sinal de operação:');
-let n2 = Number(prompt('Digite um outro valor'));
-
-if (operacao === '+') {
-    console.log(adicionar(n1, n2));
-} else if (operacao === '-') {
-    console.log(subtrair(n1, n2));
-} else if (operacao === '*' || operacao === 'x') {
-    console.log(multiplicar(n1, n2));
-} else if (operacao === '/') {
-    console.log(dividir(n1, n2));
-}
-
-function adicionar(x, y) {
+function somar(x, y) {
     return x + y;
 }
 
@@ -25,5 +11,28 @@ function multiplicar(x, y) {
 }
 
 function dividir(x, y) {
-    return x / y;
+    if (y !== 0) {
+        return x / y;
+    } else {
+        return "Erro: divisão por zero.";
+    }
 }
+
+function calculadora(operacao, a, b) {
+    switch (operacao) {
+        case 'somar':
+            return somar(a, b);
+        case 'subtrair':
+            return subtrair(a, b);
+        case 'multiplicar':
+            return multiplicar(a, b);
+        case 'dividir':
+            return dividir(a, b);
+        default:
+            return "Operação inválida.";
+    }
+}
+
+// Exemplo de uso
+let resultado = calculadora('dividir', 5, 0);
+console.log(resultado);  // Saída esperada: 8
